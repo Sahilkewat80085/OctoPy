@@ -10,9 +10,9 @@ Version: 1.0.0
 License: MIT
 Language: Python 3.12+
 
-==============================================================
+
 1. OVERVIEW
-==============================================================
+
 Octopy is a modular machine learning support library that automates 
 data preprocessing, feature selection, model evaluation, and report 
 generation. It is designed to simplify the ML workflow by providing 
@@ -22,9 +22,9 @@ The library is built for developers, data scientists, and researchers
 who want a fast, reproducible, and well-structured way to prepare, 
 train, and analyze ML models.
 
-==============================================================
+
 2. MODULES INCLUDED
-==============================================================
+
 Octopy contains the following main Python modules:
 
 1. pipeline.py     - Handles the creation and execution of ML pipelines.
@@ -33,9 +33,9 @@ Octopy contains the following main Python modules:
 4. smart_eda.py    - Generates visual and statistical exploratory data analysis.
 5. report.py       - Loads a trained model, evaluates it, and creates JSON reports.
 
-==============================================================
+
 3. MODULE DETAILS AND FUNCTIONS
-==============================================================
+
 
 --------------------------------------------------------------
 A. pipeline.py
@@ -124,7 +124,7 @@ Key Functions:
 ==============================================================
 
 1. Clone or download the repository:
-       git clone https://github.com/<your-username>/Octopy.git
+       
        cd Octopy
 
 2. Install dependencies and package:
