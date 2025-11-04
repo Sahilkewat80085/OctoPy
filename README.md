@@ -1,7 +1,6 @@
-# OctoPy
-==============================================================
+
                        OCTOPY
-==============================================================
+
 
 A Modular Python Library for Machine Learning Automation
 --------------------------------------------------------------
@@ -119,25 +118,14 @@ Key Functions:
         - Generates a structured JSON report containing model name,
           hyperparameters, and evaluation metrics.
 
-==============================================================
+
 4. INSTALLATION
-==============================================================
+
 
 1. Clone or download the repository:
-       
+       got clone https://github.com/Sahilkewat80085/OctoPy.git
        cd Octopy
 
 2. Install dependencies and package:
        pip install -e .
 
-==============================================================
-5. USAGE EXAMPLE
-==============================================================
-
-Example – Generate a Model Report
----------------------------------
-```python
-from Octopy.report import generate_report
-
-# Generate report for a trained model
-generate_report("model.pkl", "X_test.csv", "y_test.csv")
