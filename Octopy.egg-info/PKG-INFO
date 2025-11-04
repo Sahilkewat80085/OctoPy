@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: Octopy
+Version: 1.0.0
+Summary: An automated ML pipeline and reporting library with preprocessing, model selection, and analysis tools.
+Author: Sahil Kewat
+Author-email: kkewat315@gmail.com
+Requires-Python: >=3.8
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: scikit-learn
+Requires-Dist: joblib
+Requires-Dist: matplotlib
+Requires-Dist: seaborn

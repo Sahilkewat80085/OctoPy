@@ -1,0 +1,12 @@
+setup.py
+Octopy/Report.py
+Octopy/__init__.py
+Octopy/pipeline.py
+Octopy/prep.py
+Octopy/selector.py
+Octopy/smart_EDA.py
+Octopy.egg-info/PKG-INFO
+Octopy.egg-info/SOURCES.txt
+Octopy.egg-info/dependency_links.txt
+Octopy.egg-info/requires.txt
+Octopy.egg-info/top_level.txt
