@@ -129,3 +129,11 @@ Key Functions:
 2. Install dependencies and package:
        pip install -e .
 
+
+5. PLANNED UPGRADES
+
+• HTML Report Generation    - Generates clean, interactive HTML ML dashboards.
+• Model Comparison System  - Benchmarks and ranks multiple models in one call.
+• Explainable AI (XAI)     - Interactive feature explanations and prediction plots.
+• Terminal CLI Support     - Direct command-line utility to train, compare, and report.
+• Smart Dataset Analyzer   - Auto-diagnostics for data skewness, leaks, and quality.
