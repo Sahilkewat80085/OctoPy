@@ -123,7 +123,7 @@ Key Functions:
 
 
 1. Clone or download the repository:
-       got clone https://github.com/Sahilkewat80085/OctoPy.git
+       git clone https://github.com/Sahilkewat80085/OctoPy.git
        cd Octopy
 
 2. Install dependencies and package:
