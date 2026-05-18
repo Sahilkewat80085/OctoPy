@@ -5,11 +5,13 @@ from .prep import *
 from .selector import *
 from .smart_eda import *
 from .report import *
+from .comparison import *
 
 __all__ = [
     "pipeline",
     "prep",
     "selector",
     "smart_eda",
-    "report"
+    "report",
+    "comparison"
 ]
