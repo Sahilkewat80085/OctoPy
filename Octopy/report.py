@@ -139,51 +139,19 @@ def generate_plots_base64(model, X_test, y_test, is_clf: bool) -> dict:
     """
     plots_data = {}
     
-    # 1. Feature Importance Plot (Unified)
+    # 1. Feature Importance / Explainability Plot (Unified)
     try:
-        importances = None
-        feature_names = list(X_test.columns)
+        from Octopy.explain import ModelExplainer
+        explainer = ModelExplainer(model, X_test, y_test)
+        _, fig = explainer.explain_global(X_test, y_test)
         
-        if hasattr(model, 'feature_importances_'):
-            importances = model.feature_importances_
-        elif hasattr(model, 'coef_'):
-            importances = model.coef_
-            # If multi-class coefficients, average the absolute impacts
-            if len(importances.shape) > 1:
-                importances = np.mean(np.abs(importances), axis=0)
-            else:
-                importances = np.abs(importances)
-                
-        if importances is not None:
-            # Match lengths in case of mismatch
-            importances = np.array(importances).flatten()
-            if len(importances) == len(feature_names):
-                indices = np.argsort(importances)[::-1][:10]  # Top 10
-                
-                fig, ax = plt.subplots(figsize=(7, 4.5))
-                # Custom clean slate color
-                sns.barplot(
-                    x=importances[indices], 
-                    y=[feature_names[i] for i in indices], 
-                    color="#2c3e50", 
-                    ax=ax,
-                    errorbar=None
-                )
-                ax.set_title("Top Feature Importance", fontsize=12, fontweight="bold", pad=12, color="#2c3e50")
-                ax.set_xlabel("Relative Importance / Weight", fontsize=10, color="#34495e")
-                ax.set_ylabel("Feature Name", fontsize=10, color="#34495e")
-                ax.spines['top'].set_visible(False)
-                ax.spines['right'].set_visible(False)
-                ax.tick_params(axis='both', which='major', labelsize=9)
-                plt.tight_layout()
-                
-                buf = io.BytesIO()
-                plt.savefig(buf, format='svg', bbox_inches='tight')
-                buf.seek(0)
-                plots_data["feature_importance"] = buf.getvalue().decode('utf-8')
-                plt.close(fig)
+        buf = io.BytesIO()
+        fig.savefig(buf, format='svg', bbox_inches='tight')
+        buf.seek(0)
+        plots_data["feature_importance"] = buf.getvalue().decode('utf-8')
+        plt.close(fig)
     except Exception as e:
-        print(f"[WARNING] Feature importance plot generation skipped: {e}")
+        print(f"[WARNING] Feature impact explainability plot generation skipped: {e}")
 
     # 2. Task-specific evaluation plots
     try:

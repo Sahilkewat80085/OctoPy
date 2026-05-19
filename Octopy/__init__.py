@@ -6,6 +6,7 @@ from .selector import *
 from .smart_eda import *
 from .report import *
 from .comparison import *
+from .explain import *
 
 __all__ = [
     "pipeline",
@@ -13,5 +14,6 @@ __all__ = [
     "selector",
     "smart_eda",
     "report",
-    "comparison"
+    "comparison",
+    "explain"
 ]
