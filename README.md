@@ -30,7 +30,9 @@ Octopy contains the following main Python modules:
 2. prep.py         - Cleans and preprocesses raw datasets.
 3. selector.py     - Performs feature selection and ranking.
 4. smart_eda.py    - Generates visual and statistical exploratory data analysis.
-5. report.py       - Loads a trained model, evaluates it, and creates JSON reports.
+5. report.py       - Evaluates models, generating structured JSON and premium HTML dashboards.
+6. comparison.py   - Benchmarks, profiles, and ranks multiple ML models side-by-side.
+7. explain.py      - Dynamic explainability containing global SHAP/permutation and local LOFO prediction tracing.
 
 
 3. MODULE DETAILS AND FUNCTIONS
@@ -103,7 +105,8 @@ Key Functions:
 E. report.py
 --------------------------------------------------------------
 Purpose:
-    Evaluates trained ML models and generates automated reports.
+    Evaluates trained ML models, generating structured JSON files and 
+    sleek, zero-dependency HTML dashboard reports with inline vector SVGs.
 
 Key Functions:
     • load_model(model_path)
@@ -111,12 +114,43 @@ Key Functions:
     • load_test_data(x_path, y_path)
         - Loads X_test and y_test from CSV files.
     • evaluate_model(model, X_test, y_test)
-        - Computes MAE, MSE, RMSE, and R² metrics.
-    • extract_hyperparameters(model)
-        - Extracts key hyperparameters from scikit-learn compatible models.
-    • generate_report(model_path, x_test_path=None, y_test_path=None)
-        - Generates a structured JSON report containing model name,
-          hyperparameters, and evaluation metrics.
+        - Computes accuracy, F1, precision, recall (classification) or MAE, RMSE, R² (regression).
+    • generate_report(model_path, x_test_path=None, y_test_path=None, format=None)
+        - Generates structured JSON reports, HTML reports, or both, featuring 
+          embedded global explainability summary charts and evaluation metrics.
+
+--------------------------------------------------------------
+F. comparison.py
+--------------------------------------------------------------
+Purpose:
+    Compares, benchmarks, and ranks multiple ML models on mathematically identical 
+    data partitions. Profiles both metric performance and fitting/prediction runtimes.
+
+Key Functions:
+    • compare(models=None, rank_by=None, test_size=0.2, random_state=42)
+        - Trains multiple string shorthands or custom estimators. Interlinks 
+          with ModelSelector for optimal candidates fallback if list is None.
+    • print_leaderboard()
+        - Prints a beautiful, high-contrast plain-text ASCII table to the terminal.
+    • generate_html_report(output_path="comparison_report.html")
+        - Compiles model runtimes and metric scores into a sleek standalone HTML report.
+
+--------------------------------------------------------------
+G. explain.py
+--------------------------------------------------------------
+Purpose:
+    Demystifies model predictions, explaining global feature importance and 
+    tracing individual decisions. Provides high-end visual summaries with 
+    smart dependency fallbacks.
+
+Key Functions:
+    • explain_global(X_val, y_val=None, save_path=None)
+        - Computes global explanations. Leverages game-theoretic SHAP values 
+          if installed, else falls back to tree importances, model coefficients, 
+          or calculates model-agnostic Permutation Importance on validation sets.
+    • explain_prediction(sample_row)
+        - Traces a single prediction row using Leave-One-Feature-Out (LOFO) deltas.
+          Outputs an interactive contribution table with high-contrast console ASCII bars.
 
 
 4. INSTALLATION
@@ -132,8 +166,5 @@ Key Functions:
 
 5. PLANNED UPGRADES
 
-• HTML Report Generation    - Generates clean, interactive HTML ML dashboards.
-• Model Comparison System  - Benchmarks and ranks multiple models in one call.
-• Explainable AI (XAI)     - Interactive feature explanations and prediction plots.
 • Terminal CLI Support     - Direct command-line utility to train, compare, and report.
 • Smart Dataset Analyzer   - Auto-diagnostics for data skewness, leaks, and quality.
