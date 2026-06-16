@@ -1,0 +1,84 @@
+/* Custom CSS for Octopy's strict light theme */
+
+:root {
+  /* Enforce clean light mode colors */
+  --md-primary-fg-color: #2c3e50 !important;
+  --md-primary-fg-color--light: #34495e !important;
+  --md-primary-fg-color--dark: #1a252f !important;
+  --md-accent-fg-color: #3f51b5 !important;
+  --md-default-bg-color: #ffffff !important;
+  --md-default-fg-color: #2c3e50 !important;
+  --md-code-bg-color: #fafbfc !important;
+  --md-code-fg-color: #24292e !important;
+}
+
+/* Custom styling for headers and typography */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  color: #2c3e50 !important;
+  letter-spacing: -0.02em;
+}
+
+/* Make search bar feel more integrated and simple */
+.md-search__form {
+  background-color: #f1f5f9 !important;
+  border-radius: 4px !important;
+}
+
+.md-search__input {
+  color: #2c3e50 !important;
+}
+
+/* Clean up code blocks to look like serious engineering tools */
+.md-typeset pre {
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  background-color: #fafbfc !important;
+  padding: 1em !important;
+}
+
+.md-typeset code {
+  font-size: 0.85em;
+  background-color: #f1f5f9;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  color: #c0392b;
+}
+
+.md-typeset pre code {
+  color: #24292e;
+  background-color: transparent;
+  padding: 0;
+}
+
+/* Navigation layout cleanups */
+.md-nav__link {
+  font-size: 0.9em;
+  color: #475569 !important;
+}
+
+.md-nav__link--active, .md-nav__link:hover {
+  color: #2c3e50 !important;
+  font-weight: 600;
+}
+
+/* Clean up borders and shadows */
+.md-header {
+  box-shadow: none !important;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Remove any theme toggles to enforce strict light mode */
+.md-header__option {
+  display: none !important;
+}
+
+/* Minimalist footer adjustments */
+.md-footer {
+  background-color: #fafbfc !important;
+  border-top: 1px solid #e2e8f0;
+}
+
+.md-footer-meta {
+  background-color: #fafbfc !important;
+}

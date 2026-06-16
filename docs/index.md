@@ -1,0 +1,51 @@
+# Octopy
+
+**Octopy** is a modular Python library designed to automate and simplify machine learning workflows without obscuring the underlying details. It acts as an orchestrator for data preprocessing, exploratory data analysis (EDA), model suggestion, training, explanation, and report generation, while remaining transparent and developer-friendly.
+
+Unlike traditional AutoML libraries that function as opaque "black boxes," Octopy processes standard pandas DataFrames and returns raw, standard `scikit-learn` and `xgboost` estimator instances that you can inspect, modify, and serialize.
+
+---
+
+## Core Philosophy
+
+*   **Transparency First**: No hidden pipelines. The library automates tedious code but exposes standard models, metrics, and parameters.
+*   **Modular Architecture**: You are not forced into an end-to-end workflow. You can use the preprocessing module, the EDA engine, the explainability module, or the report compiler in complete isolation.
+*   **Engineering-Oriented**: Text-first, fast, and simple. Octopy is designed as a tool for developers and data scientists who require full control over their models.
+
+---
+
+## Core Modules
+
+Octopy is divided into seven main logical components:
+
+| Module | Purpose | Key Classes / Functions |
+| :--- | :--- | :--- |
+| **`prep`** | Standardized data preprocessing and feature scaling | `Preprocessor` |
+| **`smart_eda`** | Automated exploratory data analysis and distribution plotting | `SmartEDA` |
+| **`selector`** | Heuristic-driven model recommendation based on dataset metadata | `ModelSelector` |
+| **`pipeline`** | Standardized model training and metric logging | `PipelineBuilder` |
+| **`explain`** | Global feature importances (SHAP/permutation) and local instance explanations (LOFO) | `ModelExplainer` |
+| **`comparison`** | Multi-model benchmark sweeps and visual execution speed comparisons | `ModelComparer` |
+| **`report`** | Static HTML evaluation dashboards and structured JSON report compiles | `generate_report` |
+
+---
+
+## Simple Installation
+
+Install Octopy directly from your repository or using `setup.py`:
+
+```bash
+# Clone the repository
+git clone https://github.com/sahilkewat80085/Octopy.git
+cd Octopy
+
+# Install package dependencies
+pip install -e .
+```
+
+To run the documentation server locally:
+
+```bash
+pip install mkdocs mkdocs-material "mkdocstrings[python]"
+mkdocs serve
+```

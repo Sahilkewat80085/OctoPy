@@ -1,0 +1,62 @@
+site_name: Octopy
+site_url: https://github.com/sahilkewat80085/Octopy
+site_description: A modular Python library for automated data preprocessing, feature selection, model evaluation, and report generation.
+site_author: Sahil Kewat
+
+theme:
+  name: material
+  palette:
+    scheme: default # Force light mode
+    primary: slate
+    accent: indigo
+  features:
+    - content.code.copy
+    - content.code.annotate
+    - navigation.indexes
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+extra_css:
+  - extra.css
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [.] # Allow resolving the local Octopy package
+          options:
+            show_source: true
+            show_category_heading: true
+            show_root_heading: true
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: getting-started/installation.md
+      - Quick Start: getting-started/quickstart.md
+  - Core Concepts: core-concepts.md
+  - Modules:
+      - Data Preprocessing: modules/prep.md
+      - Automated EDA: modules/smart_eda.md
+      - Model Selector: modules/selector.md
+      - Pipeline Builder: modules/pipeline.md
+      - Model Explainer: modules/explain.md
+      - Model Comparer: modules/comparison.md
+      - Report Generation: modules/report.md
+  - API Reference:
+      - Overview: api/index.md
+      - Preprocessor: api/prep.md
+      - Smart EDA: api/smart_eda.md
+      - Model Selector: api/selector.md
+      - Pipeline Builder: api/pipeline.md
+      - Model Explainer: api/explain.md
+      - Model Comparer: api/comparison.md
+      - Report: api/report.md
+  - FAQ: faq.md
+  - Contributing: contributing.md
+  - Changelog: changelog.md
