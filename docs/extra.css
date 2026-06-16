@@ -67,13 +67,22 @@ h1, h2, h3, h4 {
 
 /* Navigation layout cleanups */
 .md-nav__link {
-  font-size: 0.9em;
   color: #475569 !important;
 }
 
 .md-nav__link--active, .md-nav__link:hover {
   color: #2c3e50 !important;
   font-weight: 600;
+}
+
+/* Increase font size of sidebars and TOC */
+.md-sidebar--primary .md-nav__link {
+  font-size: 0.95rem !important; /* left navigation links */
+}
+
+.md-sidebar--secondary .md-nav__link {
+  font-size: 0.9rem !important; /* table of contents links (default is very small) */
+  line-height: 1.5 !important;
 }
 
 /* Clean up borders and shadows */
@@ -96,3 +105,69 @@ h1, h2, h3, h4 {
 .md-footer-meta {
   background-color: #fafbfc !important;
 }
+
+/* VS Code Light Syntax Highlighting Overrides */
+.md-typeset .highlight .k,
+.md-typeset .highlight .kd,
+.md-typeset .highlight .kn,
+.md-typeset .highlight .kp,
+.md-typeset .highlight .kr,
+.md-typeset .highlight .kt,
+.md-typeset .highlight .ow {
+  color: #af00db !important; /* purple keywords */
+  font-weight: 500;
+}
+
+.md-typeset .highlight .s,
+.md-typeset .highlight .s1,
+.md-typeset .highlight .s2,
+.md-typeset .highlight .se,
+.md-typeset .highlight .si {
+  color: #a31515 !important; /* rust-red strings */
+}
+
+.md-typeset .highlight .sd {
+  color: #098658 !important; /* green-teal docstrings */
+  font-style: italic;
+}
+
+.md-typeset .highlight .c,
+.md-typeset .highlight .c1,
+.md-typeset .highlight .ch,
+.md-typeset .highlight .cm {
+  color: #008000 !important; /* green comments */
+  font-style: italic;
+}
+
+.md-typeset .highlight .nf,
+.md-typeset .highlight .fm {
+  color: #795e26 !important; /* gold-olive functions */
+}
+
+.md-typeset .highlight .nc,
+.md-typeset .highlight .nn {
+  color: #267f99 !important; /* teal classes */
+}
+
+.md-typeset .highlight .nb,
+.md-typeset .highlight .bp {
+  color: #0451a5 !important; /* blue builtins/self */
+}
+
+.md-typeset .highlight .kc {
+  color: #0000ff !important; /* blue constants (None, True, False) */
+}
+
+.md-typeset .highlight .mi,
+.md-typeset .highlight .mf,
+.md-typeset .highlight .mo,
+.md-typeset .highlight .mh,
+.md-typeset .highlight .mb {
+  color: #098658 !important; /* dark green numbers */
+}
+
+.md-typeset .highlight .o,
+.md-typeset .highlight .p {
+  color: #000000 !important; /* black operators and punctuation */
+}
+
