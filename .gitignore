@@ -1,0 +1,45 @@
+# MkDocs build directory
+site/
+
+# Python caching
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Machine learning checkpoints & local reports
+*.pkl
+*.sav
+model_report.json
+model_report.html
+comparison_report.html
+rf_global_importance.png
+rf_global_explain.png
+svc_global_explain.png
+y_test_temp.csv
+x_test_temp.csv
+rf_model.pkl
