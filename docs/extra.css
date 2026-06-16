@@ -109,12 +109,16 @@ h1, h2, h3, h4 {
 /* VS Code Light Syntax Highlighting Overrides */
 .md-typeset .highlight .k,
 .md-typeset .highlight .kd,
-.md-typeset .highlight .kn,
 .md-typeset .highlight .kp,
 .md-typeset .highlight .kr,
-.md-typeset .highlight .kt,
+.md-typeset .highlight .kt {
+  color: #0000ff !important; /* VS Code Blue for class, def, return, type keywords */
+  font-weight: 500;
+}
+
+.md-typeset .highlight .kn,
 .md-typeset .highlight .ow {
-  color: #af00db !important; /* purple keywords */
+  color: #af00db !important; /* VS Code Purple for import, from, and, or, in, is */
   font-weight: 500;
 }
 
