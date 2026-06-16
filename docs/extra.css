@@ -26,7 +26,21 @@ h1, h2, h3, h4 {
 }
 
 .md-search__input {
-  color: #2c3e50 !important;
+  color: #000000 !important;
+}
+
+.md-search__input::placeholder {
+  color: #000000 !important;
+  opacity: 0.65 !important;
+}
+
+/* Make search magnifying glass and close icons black */
+.md-search__form .md-search__icon {
+  color: #000000 !important;
+}
+
+.md-search__form .md-search__icon svg {
+  fill: #000000 !important;
 }
 
 /* Clean up code blocks to look like serious engineering tools */
