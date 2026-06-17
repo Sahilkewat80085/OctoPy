@@ -88,6 +88,14 @@ h1, h2, h3, h4 {
 .md-sidebar--secondary .md-nav__link {
   font-size: 0.9rem !important; /* table of contents links (default is very small) */
   line-height: 1.5 !important;
+  transition: font-size 0.15s ease, color 0.15s ease-in-out, background-color 0.15s ease-in-out !important;
+}
+
+/* Active Table of Contents Link scaling */
+.md-sidebar--secondary .md-nav__link--active {
+  font-size: 1.025rem !important; /* Scale active TOC link up by 2px (from ~14.4px to ~16.4px) */
+  font-weight: 700 !important;
+  color: #2c3e50 !important;
 }
 
 /* Clean up borders and shadows */
