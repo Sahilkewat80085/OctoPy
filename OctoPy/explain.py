@@ -1,4 +1,4 @@
-# Octopy/explain.py
+# OctoPy/explain.py
 
 import time
 import io

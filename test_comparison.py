@@ -1,6 +1,6 @@
 import pandas as pd
-from Octopy.prep import Preprocessor
-from Octopy.comparison import ModelComparer
+from OctoPy.prep import Preprocessor
+from OctoPy.comparison import ModelComparer
 
 print("="*60)
 print("RUNNING OCTOPY MODEL COMPARISON SYSTEM TESTS")

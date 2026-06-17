@@ -1,27 +1,27 @@
 # Core Concepts
 
-Octopy is designed to address a common problem in automated machine learning (AutoML) tools: the "black-box" abstraction. Many libraries wrap model training in complex custom classes, making it difficult to inspect, debug, or tweak the resulting estimators.
+OctoPy is designed to address a common problem in automated machine learning (AutoML) tools: the "black-box" abstraction. Many libraries wrap model training in complex custom classes, making it difficult to inspect, debug, or tweak the resulting estimators.
 
-This page explains the core architectural principles that govern Octopy.
+This page explains the core architectural principles that govern OctoPy.
 
 ---
 
 ## 1. Direct Model Transparency
 
-In Octopy, models are never hidden inside proprietary wrapper classes.
+In OctoPy, models are never hidden inside proprietary wrapper classes.
 *   When you train a model using `PipelineBuilder`, it returns a standard scikit-learn or XGBoost estimator instance (e.g., `RandomForestClassifier`, `XGBRegressor`).
 *   When you run benchmarks using `ModelComparer`, you receive a standard Python dictionary mapping the model names directly to their raw, trained scikit-learn/XGBoost objects.
 
 This allows you to:
 *   Perform hyperparameter tuning directly on the objects.
 *   Serialize the models using standard tools (`pickle`, `joblib`).
-*   Serve the models in production environments (e.g., using FastAPI, Flask, or cloud-native serialization engines) without importing Octopy as a production dependency.
+*   Serve the models in production environments (e.g., using FastAPI, Flask, or cloud-native serialization engines) without importing OctoPy as a production dependency.
 
 ---
 
 ## 2. Component Isolation (Modularity)
 
-Octopy does not require you to adopt a strict end-to-end workflow. You can integrate individual components into your existing codebase:
+OctoPy does not require you to adopt a strict end-to-end workflow. You can integrate individual components into your existing codebase:
 
 ```mermaid
 graph TD
@@ -43,7 +43,7 @@ graph TD
 
 *   If you already have a custom preprocessing pipeline, you can bypass `Preprocessor` and feed your processed pandas DataFrame directly to `ModelSelector` or `ModelComparer`.
 *   If you just want quick insights on a DataFrame, you can spin up `SmartEDA` in a single line without ever training a model.
-*   If you have a pre-trained model loaded from a pickle file, you can feed it directly to `ModelExplainer` or `report.generate_report` without having trained it inside Octopy.
+*   If you have a pre-trained model loaded from a pickle file, you can feed it directly to `ModelExplainer` or `report.generate_report` without having trained it inside OctoPy.
 
 ---
 
@@ -59,7 +59,7 @@ In `ModelComparer.compare()`:
 
 ## 4. Graceful Fallbacks
 
-Octopy relies on third-party packages for advanced explainability and models (such as `shap`, `xgboost`, and `lightgbm`). However, it treats these as **conditional dependencies**:
+OctoPy relies on third-party packages for advanced explainability and models (such as `shap`, `xgboost`, and `lightgbm`). However, it treats these as **conditional dependencies**:
 
 *   **Model Selection & Training**: If XGBoost or LightGBM are not installed, the library will log a warning and exclude them from recommended estimators, allowing you to train standard forest and tree models without crashing.
 *   **Explainability**: The SHAP algorithm is computationally intensive and sometimes fails on certain custom model configurations. `ModelExplainer` handles this by executing a waterfall of fallback algorithms:

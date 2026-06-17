@@ -9,7 +9,7 @@ The `explain` module provides post-hoc model interpretability using the `ModelEx
 Initialize the explainer with a pre-trained estimator, the training feature set, and the target arrays:
 
 ```python
-from Octopy.explain import ModelExplainer
+from OctoPy.explain import ModelExplainer
 
 explainer = ModelExplainer(model, X_train, y_train)
 ```

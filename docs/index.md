@@ -1,8 +1,8 @@
-# Octopy
+# OctoPy
 
-**Octopy** is a modular Python library designed to automate and simplify machine learning workflows without obscuring the underlying details. It acts as an orchestrator for data preprocessing, exploratory data analysis (EDA), model suggestion, training, explanation, and report generation, while remaining transparent and developer-friendly.
+**OctoPy** is a modular Python library designed to automate and simplify machine learning workflows without obscuring the underlying details. It acts as an orchestrator for data preprocessing, exploratory data analysis (EDA), model suggestion, training, explanation, and report generation, while remaining transparent and developer-friendly.
 
-Unlike traditional AutoML libraries that function as opaque "black boxes," Octopy processes standard pandas DataFrames and returns raw, standard `scikit-learn` and `xgboost` estimator instances that you can inspect, modify, and serialize.
+Unlike traditional AutoML libraries that function as opaque "black boxes," OctoPy processes standard pandas DataFrames and returns raw, standard `scikit-learn` and `xgboost` estimator instances that you can inspect, modify, and serialize.
 
 ---
 
@@ -10,13 +10,13 @@ Unlike traditional AutoML libraries that function as opaque "black boxes," Octop
 
 *   **Transparency First**: No hidden pipelines. The library automates tedious code but exposes standard models, metrics, and parameters.
 *   **Modular Architecture**: You are not forced into an end-to-end workflow. You can use the preprocessing module, the EDA engine, the explainability module, or the report compiler in complete isolation.
-*   **Engineering-Oriented**: Text-first, fast, and simple. Octopy is designed as a tool for developers and data scientists who require full control over their models.
+*   **Engineering-Oriented**: Text-first, fast, and simple. OctoPy is designed as a tool for developers and data scientists who require full control over their models.
 
 ---
 
 ## Core Modules
 
-Octopy is divided into seven main logical components:
+OctoPy is divided into seven main logical components:
 
 | Module | Purpose | Key Classes / Functions |
 | :--- | :--- | :--- |
@@ -32,12 +32,12 @@ Octopy is divided into seven main logical components:
 
 ## Simple Installation
 
-Install Octopy directly from your repository or using `setup.py`:
+Install OctoPy directly from your repository or using `setup.py`:
 
 ```bash
 # Clone the repository
-git clone https://github.com/sahilkewat80085/Octopy.git
-cd Octopy
+git clone https://github.com/sahilkewat80085/OctoPy.git
+cd OctoPy
 
 # Install package dependencies
 pip install -e .

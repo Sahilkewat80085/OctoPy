@@ -11,7 +11,7 @@ The `Preprocessor` class takes a pandas DataFrame, duplicates it internally to p
 ### Typical Imports
 
 ```python
-from Octopy.prep import Preprocessor
+from OctoPy.prep import Preprocessor
 ```
 
 ---

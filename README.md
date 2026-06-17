@@ -12,7 +12,7 @@ Language: Python 3.12+
 
 1. OVERVIEW
 
-Octopy is a modular machine learning support library that automates 
+OctoPy is a modular machine learning support library that automates 
 data preprocessing, feature selection, model evaluation, and report 
 generation. It is designed to simplify the ML workflow by providing 
 a collection of plug-and-play Python modules.
@@ -24,7 +24,7 @@ train, and analyze ML models.
 
 2. MODULES INCLUDED
 
-Octopy contains the following main Python modules:
+OctoPy contains the following main Python modules:
 
 1. pipeline.py     - Handles the creation and execution of ML pipelines.
 2. prep.py         - Cleans and preprocesses raw datasets.
@@ -158,7 +158,7 @@ Key Functions:
 
 1. Clone or download the repository:
        git clone https://github.com/Sahilkewat80085/OctoPy.git
-       cd Octopy
+       cd OctoPy
 
 2. Install dependencies and package:
        pip install -e .

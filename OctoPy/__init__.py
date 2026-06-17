@@ -1,4 +1,4 @@
-# Octopy/__init__.py
+# OctoPy/__init__.py
 
 from .pipeline import *
 from .prep import *

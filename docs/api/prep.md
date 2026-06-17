@@ -1,5 +1,5 @@
 # Preprocessor API Reference
 
-This page contains the auto-generated API documentation for the `Octopy.prep` module, exposing the `Preprocessor` class.
+This page contains the auto-generated API documentation for the `OctoPy.prep` module, exposing the `Preprocessor` class.
 
-::: Octopy.prep
+::: OctoPy.prep

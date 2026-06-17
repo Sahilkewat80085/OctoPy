@@ -9,7 +9,7 @@ The `pipeline` module features the `PipelineBuilder` class, which handles train-
 Initialize the builder with your processed DataFrame, target column name, and optional problem type:
 
 ```python
-from Octopy.pipeline import PipelineBuilder
+from OctoPy.pipeline import PipelineBuilder
 
 builder = PipelineBuilder(df, target="class_label")
 ```

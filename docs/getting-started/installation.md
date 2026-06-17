@@ -1,14 +1,14 @@
 # Installation Guide
 
-This guide covers setting up your Python environment and installing **Octopy** along with its dependencies.
+This guide covers setting up your Python environment and installing **OctoPy** along with its dependencies.
 
 ---
 
 ## Prerequisites
 
-Octopy requires **Python 3.8 or higher** (tested up to Python 3.12). 
+OctoPy requires **Python 3.8 or higher** (tested up to Python 3.12). 
 
-We recommend installing Octopy inside a virtual environment (`venv` or `conda`) to avoid package dependency conflicts with other projects.
+We recommend installing OctoPy inside a virtual environment (`venv` or `conda`) to avoid package dependency conflicts with other projects.
 
 ---
 
@@ -38,19 +38,19 @@ We recommend installing Octopy inside a virtual environment (`venv` or `conda`) 
 
 4. Install the package locally:
    ```bash
-   pip install -e /path/to/Octopy
+   pip install -e /path/to/OctoPy
    ```
 
 ---
 
 ## Installing from Source
 
-If you want to contribute to Octopy, run the package tests, or customize the modules:
+If you want to contribute to OctoPy, run the package tests, or customize the modules:
 
 ```bash
 # Clone the repository
-git clone https://github.com/sahilkewat80085/Octopy.git
-cd Octopy
+git clone https://github.com/sahilkewat80085/OctoPy.git
+cd OctoPy
 
 # Install in editable mode with development defaults
 pip install -e .
@@ -71,7 +71,7 @@ These packages are automatically installed when you run `pip install -e .` (as s
 *   **`joblib`**: Model serialization and parallel processing helper.
 
 ### Optional & Conditional Dependencies
-Octopy is designed to degrade gracefully if advanced external libraries are missing:
+OctoPy is designed to degrade gracefully if advanced external libraries are missing:
 
 *   **`xgboost` / `lightgbm`**: Recommended for gradient boosting classification and regression. If they are not installed, `PipelineBuilder` and `ModelSelector` will bypass them and fallback to standard scikit-learn tree estimators.
 *   **`shap`**: Required for game-theoretic global feature explanations. If `shap` is missing, `ModelExplainer` will automatically fall back to standard Gini/Intrinsic feature importances, permutation importances, or linear coefficients without raising an error.

@@ -1,4 +1,4 @@
-# Octopy/report.py
+# OctoPy/report.py
 
 import os
 import pickle
@@ -141,7 +141,7 @@ def generate_plots_base64(model, X_test, y_test, is_clf: bool) -> dict:
     
     # 1. Feature Importance / Explainability Plot (Unified)
     try:
-        from Octopy.explain import ModelExplainer
+        from OctoPy.explain import ModelExplainer
         explainer = ModelExplainer(model, X_test, y_test)
         _, fig = explainer.explain_global(X_test, y_test)
         

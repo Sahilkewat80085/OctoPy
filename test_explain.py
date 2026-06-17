@@ -5,9 +5,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 
-from Octopy.prep import Preprocessor
-from Octopy.explain import ModelExplainer
-from Octopy.report import generate_report
+from OctoPy.prep import Preprocessor
+from OctoPy.explain import ModelExplainer
+from OctoPy.report import generate_report
 
 print("="*60)
 print("RUNNING OCTOPY EXPLAINABLE AI SYSTEM TESTS")

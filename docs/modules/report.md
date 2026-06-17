@@ -10,7 +10,7 @@ The `report` module consists of standalone functions designed to load pre-traine
 Loads pickled or serialized estimator files safely. Supports standard Python pickle/sav structures and joblib-compressed binaries:
 
 ```python
-from Octopy.report import load_model
+from OctoPy.report import load_model
 
 # Returns a raw trained scikit-learn/XGBoost estimator object
 model = load_model("path/to/rf_model.pkl")
@@ -22,7 +22,7 @@ model = load_model("path/to/rf_model.pkl")
 Parses testing feature sets and targets from separate CSV files. It automatically flattens single-column targets to prevent common scikit-learn dimension warnings:
 
 ```python
-from Octopy.report import load_test_data
+from OctoPy.report import load_test_data
 
 # Returns X_test (DataFrame) and y_test (Series)
 X_test, y_test = load_test_data("x_test.csv", "y_test.csv")
@@ -34,7 +34,7 @@ X_test, y_test = load_test_data("x_test.csv", "y_test.csv")
 Extracts model parameter settings dynamically. It queries the estimator's `get_params` API and filters for critical model configurations (e.g., `n_estimators`, `max_depth`, `learning_rate`):
 
 ```python
-from Octopy.report import extract_hyperparameters
+from OctoPy.report import extract_hyperparameters
 
 # Returns a dictionary of parameter names and values
 hyperparams = extract_hyperparameters(model)
@@ -46,7 +46,7 @@ hyperparams = extract_hyperparameters(model)
 The high-level entrypoint is the `generate_report` function. It evaluates the model, computes metrics, generates plots, and exports files:
 
 ```python
-from Octopy.report import generate_report
+from OctoPy.report import generate_report
 
 # Runs full evaluation and compiles reports
 generate_report(

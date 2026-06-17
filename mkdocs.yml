@@ -1,5 +1,5 @@
-site_name: Octopy
-site_url: https://github.com/sahilkewat80085/Octopy
+site_name: OctoPy
+site_url: https://github.com/sahilkewat80085/OctoPy
 site_description: A modular Python library for automated data preprocessing, feature selection, model evaluation, and report generation.
 site_author: Sahil Kewat
 
@@ -29,7 +29,7 @@ plugins:
       default_handler: python
       handlers:
         python:
-          paths: [.] # Allow resolving the local Octopy package
+          paths: [.] # Allow resolving the local OctoPy package
           options:
             show_source: true
             show_category_heading: true

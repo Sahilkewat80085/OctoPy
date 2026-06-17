@@ -9,7 +9,7 @@ The `smart_eda` module provides the `SmartEDA` class to automate exploratory dat
 Initialize the class by passing a pandas DataFrame:
 
 ```python
-from Octopy.smart_eda import SmartEDA
+from OctoPy.smart_eda import SmartEDA
 
 eda = SmartEDA(df)
 ```

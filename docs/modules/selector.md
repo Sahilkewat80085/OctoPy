@@ -9,7 +9,7 @@ The `selector` module contains the `ModelSelector` class, which analyzes dataset
 The selector evaluates your dataset and suggests appropriate model instances from `scikit-learn` and `xgboost` without performing any training:
 
 ```python
-from Octopy.selector import ModelSelector
+from OctoPy.selector import ModelSelector
 
 # Target variable and automated problem inference
 selector = ModelSelector(df, target="species")

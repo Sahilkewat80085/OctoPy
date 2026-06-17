@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-This quick start guide will walk you through a complete, end-to-end machine learning workflow using **Octopy** with a sample classification dataset.
+This quick start guide will walk you through a complete, end-to-end machine learning workflow using **OctoPy** with a sample classification dataset.
 
 We will cover:
 1. Loading and preprocessing data.
@@ -19,10 +19,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 
-from Octopy.prep import Preprocessor
-from Octopy.selector import ModelSelector
-from Octopy.comparison import ModelComparer
-from Octopy.explain import ModelExplainer
+from OctoPy.prep import Preprocessor
+from OctoPy.selector import ModelSelector
+from OctoPy.comparison import ModelComparer
+from OctoPy.explain import ModelExplainer
 
 # ==========================================
 # 1. Load the Dataset

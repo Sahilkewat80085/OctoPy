@@ -1,6 +1,6 @@
-# Contributing to Octopy
+# Contributing to OctoPy
 
-Thank you for your interest in contributing to **Octopy**! We welcome bug fixes, documentation improvements, feature additions, and test enhancements.
+Thank you for your interest in contributing to **OctoPy**! We welcome bug fixes, documentation improvements, feature additions, and test enhancements.
 
 ---
 
@@ -15,8 +15,8 @@ We aim to foster an open, professional, and welcoming developer community. Pleas
 1.  **Fork the Repository**: Create a personal copy of the repository on GitHub.
 2.  **Clone the Fork**:
     ```bash
-    git clone https://github.com/YOUR_USERNAME/Octopy.git
-    cd Octopy
+    git clone https://github.com/YOUR_USERNAME/OctoPy.git
+    cd OctoPy
     ```
 3.  **Set Up a Development Environment**:
     We recommend setting up a virtual environment and installing the package in editable mode with development defaults:
@@ -62,5 +62,5 @@ Ensure all benchmark leaderboards print successfully and HTML report outputs com
 
 1.  Commit your changes with descriptive commit messages.
 2.  Push your feature branch to your fork on GitHub.
-3.  Open a **Pull Request** against the `main` branch of the official Octopy repository.
+3.  Open a **Pull Request** against the `main` branch of the official OctoPy repository.
 4.  Provide a clear summary of the changes and link any related open issues.

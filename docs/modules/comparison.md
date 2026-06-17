@@ -9,7 +9,7 @@ The `comparison` module contains the `ModelComparer` class, designed to automate
 Initialize the comparer with a pandas DataFrame, target variable, and optional task type:
 
 ```python
-from Octopy.comparison import ModelComparer
+from OctoPy.comparison import ModelComparer
 
 comparer = ModelComparer(df, target="target_column")
 ```

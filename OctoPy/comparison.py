@@ -1,4 +1,4 @@
-# Octopy/comparison.py
+# OctoPy/comparison.py
 
 import time
 import os
@@ -20,8 +20,8 @@ from sklearn.metrics import (
     r2_score, mean_absolute_error, mean_squared_error
 )
 
-from Octopy.pipeline import PipelineBuilder
-from Octopy.selector import ModelSelector
+from OctoPy.pipeline import PipelineBuilder
+from OctoPy.selector import ModelSelector
 from typing import List, Union, Dict, Tuple
 
 

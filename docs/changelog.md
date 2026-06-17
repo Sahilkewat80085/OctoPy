@@ -1,12 +1,12 @@
 # Changelog
 
-All notable changes to the **Octopy** project will be documented on this page.
+All notable changes to the **OctoPy** project will be documented on this page.
 
 ---
 
 ## [1.0.0] - 2026-06-16
 
-This is the initial stable release of Octopy, featuring a fully modular Python machine learning automation suite.
+This is the initial stable release of OctoPy, featuring a fully modular Python machine learning automation suite.
 
 ### Added
 *   **`prep` Module**: Introduced the `Preprocessor` class supporting mean, median, mode, and row-dropping missing value imputation, one-hot encoding, label encoding, and MinMax/Standard feature scaling.

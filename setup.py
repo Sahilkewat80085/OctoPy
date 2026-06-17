@@ -1,14 +1,14 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="Octopy",
+    name="OctoPy",
     version="1.0.0",
     author="Sahil Kewat",
     author_email="kkewat315@gmail.com",
     description="A modular Python library for automated data preprocessing, feature selection, model evaluation, and report generation.",
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/sahilkewat80085/Octopy",
+    url="https://github.com/sahilkewat80085/OctoPy",
     packages=find_packages(),
     install_requires=[
         "pandas",
