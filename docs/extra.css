@@ -117,6 +117,20 @@ h1, h2, h3, h4 {
   border-bottom: 1px solid #e2e8f0;
 }
 
+/* Increase site title font size in header */
+.md-header__topic,
+.md-header__title {
+  font-size: 1.25rem !important; /* Make site name larger */
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+}
+
+/* Increase site title font size in the left sidebar top panel */
+.md-sidebar--primary .md-nav__title {
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+}
+
 /* Remove any theme toggles to enforce strict light mode */
 .md-header__option {
   display: none !important;
