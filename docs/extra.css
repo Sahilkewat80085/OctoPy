@@ -1,5 +1,9 @@
 /* Custom CSS for Octopy's strict light theme */
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   /* Enforce clean light mode colors */
   --md-primary-fg-color: #2c3e50 !important;
@@ -68,6 +72,7 @@ h1, h2, h3, h4 {
 /* Navigation layout cleanups */
 .md-nav__link {
   color: #475569 !important;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out !important;
 }
 
 .md-nav__link--active, .md-nav__link:hover {

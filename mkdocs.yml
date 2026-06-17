@@ -13,6 +13,9 @@ theme:
     - content.code.copy
     - content.code.annotate
     - navigation.indexes
+    - navigation.instant
+    - navigation.tracking
+    - navigation.scroll
   font:
     text: Roboto
     code: Roboto Mono
