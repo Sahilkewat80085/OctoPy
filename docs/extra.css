@@ -83,6 +83,14 @@ h1, h2, h3, h4 {
 /* Increase font size of sidebars and TOC */
 .md-sidebar--primary .md-nav__link {
   font-size: 0.95rem !important; /* left navigation links */
+  transition: font-size 0.15s ease, color 0.15s ease-in-out, background-color 0.15s ease-in-out !important;
+}
+
+/* Active Main Navigation Link scaling */
+.md-sidebar--primary .md-nav__link--active {
+  font-size: 1.075rem !important; /* Scale active navigation link up by 2px (from ~15.2px to ~17.2px) */
+  font-weight: 700 !important;
+  color: #2c3e50 !important;
 }
 
 .md-sidebar--secondary .md-nav__link {
