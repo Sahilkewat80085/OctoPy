@@ -2,6 +2,8 @@ site_name: OctoPy
 site_url: https://github.com/sahilkewat80085/OctoPy
 site_description: A modular Python library for automated data preprocessing, feature selection, model evaluation, and report generation.
 site_author: Sahil Kewat
+repo_url: https://github.com/sahilkewat80085/OctoPy
+repo_name: sahilkewat80085/OctoPy
 
 theme:
   name: material
@@ -16,6 +18,7 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.scroll
+    - navigation.top
   font:
     text: Roboto
     code: Roboto Mono
