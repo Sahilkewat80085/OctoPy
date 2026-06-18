@@ -43,9 +43,3 @@ cd OctoPy
 pip install -e .
 ```
 
-To run the documentation server locally:
-
-```bash
-pip install mkdocs mkdocs-material "mkdocstrings[python]"
-mkdocs serve
-```
