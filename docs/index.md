@@ -32,7 +32,13 @@ OctoPy is divided into seven main logical components:
 
 ## Simple Installation
 
-Install OctoPy directly from your repository or using `setup.py`:
+Install OctoPy via PyPI:
+
+```bash
+pip install octopyx
+```
+
+Or install from source:
 
 ```bash
 # Clone the repository

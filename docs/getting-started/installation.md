@@ -12,6 +12,16 @@ We recommend installing OctoPy inside a virtual environment (`venv` or `conda`) 
 
 ---
 
+## Installing via PyPI
+
+You can install **OctoPy** directly from PyPI using `pip`:
+
+```bash
+pip install octopyx
+```
+
+---
+
 ## Installing via Virtual Environment (Recommended)
 
 ### Using `venv` (Standard Python)
