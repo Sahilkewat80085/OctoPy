@@ -96,6 +96,11 @@ h1, h2, h3, h4 {
   background-color: #fafbfc !important;
 }
 
+/* Prevent inline code inside tables from wrapping mid-word */
+.md-typeset table:not([class]) code {
+  white-space: nowrap !important;
+}
+
 .md-typeset pre code {
   color: #24292e;
   background-color: transparent;
