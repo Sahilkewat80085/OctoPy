@@ -7,6 +7,8 @@ repo_name: sahilkewat80085/OctoPy
 
 theme:
   name: material
+  logo: logo.png
+  favicon: logo.png
   palette:
     scheme: default # Force light mode
     primary: slate
