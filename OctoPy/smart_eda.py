@@ -30,19 +30,29 @@ class SmartEDA:
         for col in self.df.select_dtypes(include='object'):
             print(f"\n{col}:\n", self.df[col].value_counts())
 
-    def distribution_plots(self):
-        """
-        Plot histograms for all numerical features.
+    def distribution_plots(self, save_path: str = None):
+        """Plot histograms for all numerical features.
+
+        Args:
+            save_path (str, optional): Path to save the plot image. If None, the plot is displayed.
         """
         print("\nPlotting Distributions:")
         num_cols = self.df.select_dtypes(include=np.number).columns
         self.df[num_cols].hist(bins=30, figsize=(15, 10))
         plt.tight_layout()
-        plt.show()
+        if save_path:
+            plt.savefig(save_path)
+            plt.close()
+        else:
+            plt.show()
 
-    def boxplots(self):
-        """
-        Plot boxplots for all numerical features to detect outliers.
+    def boxplots(self, save_path: str = None):
+        """Plot boxplots for all numerical features to detect outliers.
+
+        Args:
+            save_path (str, optional): Path to save the plot images. If provided, the feature name
+                will be appended to the file name (e.g. 'boxplot_feature.png') or formatted
+                using '{col}' if present. If None, the plots are displayed.
         """
         print("\nGenerating Boxplots:")
         num_cols = self.df.select_dtypes(include=np.number).columns
@@ -52,22 +62,43 @@ class SmartEDA:
             plt.title(f"Boxplot of {col}")
             plt.xlabel(col)
             plt.grid(True)
-            plt.show()
+            if save_path:
+                if "{col}" in save_path:
+                    path = save_path.format(col=col)
+                else:
+                    import os
+                    base, ext = os.path.splitext(save_path)
+                    path = f"{base}_{col}{ext}"
+                plt.savefig(path)
+                plt.close()
+            else:
+                plt.show()
 
-    def correlation_heatmap(self):
-        """
-        Plot correlation heatmap of numerical features.
+    def correlation_heatmap(self, save_path: str = None):
+        """Plot correlation heatmap of numerical features.
+
+        Args:
+            save_path (str, optional): Path to save the plot image. If None, the plot is displayed.
         """
         print("\nCorrelation Heatmap:")
         plt.figure(figsize=(10, 8))
         corr = self.df.corr(numeric_only=True)
-        sns.heatmap(corr, annot=True, cmap='coolwarm', fmt=".2f")
+        sns.heatmap(corr, cmap='coolwarm', annot=True, fmt=".2f")
         plt.title("Correlation Matrix")
-        plt.show()
+        if save_path:
+            plt.savefig(save_path)
+            plt.close()
+        else:
+            plt.show()
 
-    def target_relation(self, target: str):
-        """
-        Plot boxplots between target variable and all numerical features.
+    def target_relation(self, target: str, save_path: str = None):
+        """Plot boxplots between target variable and all numerical features.
+
+        Args:
+            target (str): Name of the target column.
+            save_path (str, optional): Path to save the plot images. If provided, the feature name
+                will be appended to the file name (e.g. 'relation_feature.png') or formatted
+                using '{col}' if present. If None, the plots are displayed.
         """
         print(f"\nTarget Interaction with: {target}")
         num_cols = self.df.select_dtypes(include=np.number).columns
@@ -79,7 +110,17 @@ class SmartEDA:
                 plt.xlabel(target)
                 plt.ylabel(col)
                 plt.grid(True)
-                plt.show()
+                if save_path:
+                    if "{col}" in save_path:
+                        path = save_path.format(col=col)
+                    else:
+                        import os
+                        base, ext = os.path.splitext(save_path)
+                        path = f"{base}_{col}{ext}"
+                    plt.savefig(path)
+                    plt.close()
+                else:
+                    plt.show()
 
     def run_all(self, target: str = None):
         """
