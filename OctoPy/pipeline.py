@@ -62,7 +62,23 @@ except ImportError:
 
 
 class PipelineBuilder:
+    """A helper class to prepare data, select, and train machine learning models.
+
+    This class handles the end-to-end process of splitting features and target,
+    inferring the machine learning task type (classification or regression),
+    and training any of the 30+ supported scikit-learn, XGBoost, or LightGBM models.
+    """
+
     def __init__(self, df: pd.DataFrame, target: str, problem_type: str = None):
+        """Initializes the PipelineBuilder.
+
+        Args:
+            df (pd.DataFrame): The input DataFrame containing features and target column.
+            target (str): The name of the target column in df.
+            problem_type (str, optional): The machine learning task type, either 'classification'
+                or 'regression'. If None, the problem type is automatically inferred based
+                on the target column data type and cardinality.
+        """
         self.df = df
         self.target = target
         self.problem_type = problem_type or self._infer_problem_type()
@@ -131,7 +147,23 @@ class PipelineBuilder:
                 raise ImportError("LightGBM is not installed. Please run 'pip install lightgbm' to use this model.")
         return model
 
-    def train(self, model_name='randomforest', test_size=0.2, random_state=42):
+    def train(self, model_name='randomforest', test_size=0.2, random_state=42) -> tuple:
+        """Trains a machine learning model and returns the fitted model and evaluation metrics.
+
+        Args:
+            model_name (str, optional): Shorthand name of the model to train. Defaults to 'randomforest'.
+            test_size (float, optional): Proportion of the dataset to include in the test split. Defaults to 0.2.
+            random_state (int, optional): Controls the shuffling applied to the data before applying the split. Defaults to 42.
+
+        Returns:
+            tuple: A tuple containing:
+                - model: The trained estimator object (scikit-learn, XGBoost, or LightGBM model).
+                - metrics (dict): A dictionary of evaluation metrics (e.g. Accuracy, F1 Score, R2 Score, MSE).
+
+        Raises:
+            ValueError: If the model_name is invalid or not supported.
+            ImportError: If the requested model (e.g., xgboost, lightgbm) is not installed.
+        """
         print(f"Training model: {model_name}")
         model = self._get_model(model_name)
         if model is None:

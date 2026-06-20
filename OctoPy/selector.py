@@ -29,7 +29,23 @@ ModelType = Union[
 
 
 class ModelSelector:
+    """A rule-based model recommender system.
+
+    ModelSelector evaluates the characteristics of a dataset (such as number of samples,
+    number of features, and target imbalance ratio) to recommend suitable machine learning models
+    from scikit-learn and XGBoost.
+    """
+
     def __init__(self, df: pd.DataFrame, target: str, problem_type: str = None):
+        """Initializes the ModelSelector.
+
+        Args:
+            df (pd.DataFrame): The input DataFrame containing features and target column.
+            target (str): The name of the target column in df.
+            problem_type (str, optional): The machine learning task type, either 'classification'
+                or 'regression'. If None, the problem type is automatically inferred based
+                on the target column data type and cardinality.
+        """
         self.df = df
         self.target = target
         self.problem_type = problem_type or self._infer_problem_type()
@@ -50,6 +66,12 @@ class ModelSelector:
         return counts.max() / counts.min() if len(counts) > 1 else 1.0
 
     def suggest_models(self) -> List[ModelType]:
+        """Suggests a list of recommended machine learning model instances based on the dataset metrics.
+
+        Returns:
+            List[ModelType]: A list of un-fitted estimator objects (from scikit-learn or XGBoost)
+                recommended for the dataset.
+        """
         return (
             self._suggest_classification_models()
             if self.problem_type == 'classification'
@@ -96,6 +118,7 @@ class ModelSelector:
         return models
 
     def print_summary(self):
+        """Prints a human-readable summary of the dataset metrics and recommended model names."""
         print(f"Problem type: {self.problem_type}")
         print(f"Samples: {self.num_samples}")
         print(f"Features (excluding target): {self.num_features}")
