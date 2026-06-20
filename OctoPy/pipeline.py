@@ -22,8 +22,17 @@ from sklearn.discriminant_analysis import (
     QuadraticDiscriminantAnalysis, LinearDiscriminantAnalysis
 )
 from sklearn.neural_network import MLPClassifier
-from xgboost import XGBClassifier
-from lightgbm import LGBMClassifier
+
+# Optional classification models
+try:
+    from xgboost import XGBClassifier
+except ImportError:
+    XGBClassifier = None
+
+try:
+    from lightgbm import LGBMClassifier
+except ImportError:
+    LGBMClassifier = None
 
 # Regression models
 from sklearn.linear_model import (
@@ -39,8 +48,17 @@ from sklearn.svm import SVR
 from sklearn.neighbors import KNeighborsRegressor   
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.neural_network import MLPRegressor
-from xgboost import XGBRegressor
-from lightgbm import LGBMRegressor
+
+# Optional regression models
+try:
+    from xgboost import XGBRegressor
+except ImportError:
+    XGBRegressor = None
+
+try:
+    from lightgbm import LGBMRegressor
+except ImportError:
+    LGBMRegressor = None
 
 
 class PipelineBuilder:
@@ -79,8 +97,8 @@ class PipelineBuilder:
             'mlp': MLPClassifier(max_iter=500),
             'bagging': BaggingClassifier(),
             'histgb': HistGradientBoostingClassifier(),
-            'xgboost': XGBClassifier(),
-            'lightgbm': LGBMClassifier()
+            'xgboost': XGBClassifier() if XGBClassifier is not None else None,
+            'lightgbm': LGBMClassifier() if LGBMClassifier is not None else None
         }
 
         regression_models = {
@@ -98,14 +116,20 @@ class PipelineBuilder:
             'mlpreg': MLPRegressor(max_iter=500),
             'baggingreg': BaggingRegressor(),
             'histgbreg': HistGradientBoostingRegressor(),
-            'xgboostreg': XGBRegressor(),
-            'lightgbmreg': LGBMRegressor(),
+            'xgboostreg': XGBRegressor() if XGBRegressor is not None else None,
+            'lightgbmreg': LGBMRegressor() if LGBMRegressor is not None else None,
             'huberreg': HuberRegressor(),
             'theilsenreg': TheilSenRegressor(),
             'ransacreg': RANSACRegressor()
         }
 
-        return classification_models.get(name) if self.problem_type == 'classification' else regression_models.get(name)
+        model = classification_models.get(name) if self.problem_type == 'classification' else regression_models.get(name)
+        if model is None:
+            if name in ['xgboost', 'xgboostreg'] and XGBClassifier is None:
+                raise ImportError("XGBoost is not installed. Please run 'pip install xgboost' to use this model.")
+            if name in ['lightgbm', 'lightgbmreg'] and LGBMClassifier is None:
+                raise ImportError("LightGBM is not installed. Please run 'pip install lightgbm' to use this model.")
+        return model
 
     def train(self, model_name='randomforest', test_size=0.2, random_state=42):
         print(f"Training model: {model_name}")

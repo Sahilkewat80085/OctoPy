@@ -14,13 +14,17 @@ from sklearn.ensemble import (
 from sklearn.svm import SVC, SVR
 from sklearn.linear_model import LinearRegression
 from sklearn.dummy import DummyClassifier, DummyRegressor
-from xgboost import XGBClassifier, XGBRegressor
+# Optional models
+try:
+    from xgboost import XGBClassifier, XGBRegressor
+except ImportError:
+    XGBClassifier, XGBRegressor = None, None
 
 ModelType = Union[
     LogisticRegression, KNeighborsClassifier, RandomForestClassifier,
-    GradientBoostingClassifier, XGBClassifier, DummyClassifier,
+    GradientBoostingClassifier, Union[None, XGBClassifier], DummyClassifier,
     LinearRegression, KNeighborsRegressor, RandomForestRegressor,
-    GradientBoostingRegressor, SVR, XGBRegressor, DummyRegressor
+    GradientBoostingRegressor, SVR, Union[None, XGBRegressor], DummyRegressor
 ]
 
 
@@ -58,11 +62,10 @@ class ModelSelector:
         if self.num_samples < 1000:
             models += [LogisticRegression(), KNeighborsClassifier()]
         else:
-            models += [
-                RandomForestClassifier(),
-                XGBClassifier(),
-                GradientBoostingClassifier()
-            ]
+            models += [RandomForestClassifier()]
+            if XGBClassifier is not None:
+                models.append(XGBClassifier())
+            models += [GradientBoostingClassifier()]
 
         if self.num_features > 50:
             models.append(SVC())
@@ -80,11 +83,10 @@ class ModelSelector:
         if self.num_samples < 1000:
             models += [LinearRegression(), KNeighborsRegressor()]
         else:
-            models += [
-                RandomForestRegressor(),
-                XGBRegressor(),
-                GradientBoostingRegressor()
-            ]
+            models += [RandomForestRegressor()]
+            if XGBRegressor is not None:
+                models.append(XGBRegressor())
+            models += [GradientBoostingRegressor()]
 
         if self.num_features > 50:
             models.append(SVR())
