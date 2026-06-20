@@ -6,7 +6,7 @@ repo_url: https://github.com/sahilkewat80085/OctoPy
 repo_name: sahilkewat80085/OctoPy
 
 theme:
-  name: material
+  name: Material
   logo: logo.png
   favicon: logo.png
   palette:
