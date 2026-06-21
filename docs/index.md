@@ -30,6 +30,14 @@ OctoPy is divided into seven main logical components:
 
 ---
 
+!!! warning "Security & Deserialization Safety"
+    **OctoPy** handles model serialization and deserialization via standard Python libraries like `pickle` and `joblib` (e.g. in the `explain` and `report` modules).
+    
+    *   **Never load or evaluate untrusted model files (`.pkl` or `.joblib`).** Deserializing untrusted data can lead to arbitrary code execution.
+    *   Always verify the cryptographic signatures or checksums of model assets before importing them into your ML pipelines.
+
+---
+
 ## Simple Installation
 
 Install OctoPy via PyPI:
